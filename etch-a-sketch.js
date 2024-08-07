@@ -4,8 +4,17 @@ const sketchPadSize = 960;
 
 let container = document.querySelector("#container");
 
+let button = document.querySelector("button");
 
 
+
+button.addEventListener("click", getNewGrid);
+
+function getNewGrid(){
+    let newSize = prompt("Enter new grid size!");
+    container.replaceChildren();
+    createGrid(newSize);
+}
 
 function createGrid(size){
     for (let i = 0; i < size; i++) {
@@ -25,5 +34,7 @@ function createGrid(size){
         container.appendChild(row);
     }
 }
+
+
 
 createGrid(size);

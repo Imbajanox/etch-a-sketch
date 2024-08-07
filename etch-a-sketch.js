@@ -16,6 +16,14 @@ function getNewGrid(){
     createGrid(newSize);
 }
 
+function randomColor(){
+    let color = [];
+    for (let i = 0; i < 3; i++) {
+        color.push(Math.floor(Math.random() * 256));
+      }
+    return 'rgb(' + color.join(', ') + ')';
+}
+
 function createGrid(size){
     for (let i = 0; i < size; i++) {
         let row = document.createElement("div");
@@ -28,6 +36,7 @@ function createGrid(size){
             col.classList.add('col');
             col.style.width = sketchPadSize/size + "px";
             col.style.height = sketchPadSize/size + "px";
+            col.addEventListener("mouseover", function(){col.style.backgroundColor = randomColor();})
             row.appendChild(col);
 
         }

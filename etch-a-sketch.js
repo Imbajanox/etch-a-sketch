@@ -24,6 +24,10 @@ function randomColor(){
     return 'rgb(' + color.join(', ') + ')';
 }
 
+function increaseOpacity(){
+
+}
+
 function createGrid(size){
     for (let i = 0; i < size; i++) {
         let row = document.createElement("div");
@@ -36,7 +40,8 @@ function createGrid(size){
             col.classList.add('col');
             col.style.width = sketchPadSize/size + "px";
             col.style.height = sketchPadSize/size + "px";
-            col.addEventListener("mouseover", function(){col.style.backgroundColor = randomColor();})
+            col.style.opacity = 0;
+            col.addEventListener("mouseenter", function(){col.style.backgroundColor = randomColor(); (col.style.opacity <= 0.9) ? col.style.opacity = +col.style.opacity + 0.1: col.style.opacity = 1.0;})
             row.appendChild(col);
 
         }
